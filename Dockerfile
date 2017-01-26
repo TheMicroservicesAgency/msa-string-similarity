@@ -11,11 +11,9 @@ RUN apk add --update gcc zlib-dev libconfig-dev libarchive-dev automake autoconf
     && make \
     && make install \
     && ln -s /usr/include/locale.h /usr/include/xlocale.h \
-    && pip install -r /opt/ms/requirements.txt
-    # && apk del gcc zlib-dev libconfig-dev libarchive-dev automake autoconf libtool make python-dev \
-    # && rm -rf /tmp/* /var/cache/apk/*
-
-#RUN pip install -r /opt/ms/requirements.txt
+    && pip install -r /opt/ms/requirements.txt \
+    && apk del make automake autoconf libtool python-dev \
+    && rm -rf /tmp/* /var/cache/apk/*
 
 # Override the Nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf

@@ -38,9 +38,9 @@ def return_algorithms():
 
 
 # serve the doc for a given algorithm
-@app.route('/similarity/references/<ref>')
-def return_reference(ref):
-  response = send_from_directory('data/references/', ref)
+@app.route('/similarity/references/<algorithm>')
+def return_reference(algorithm):
+  response = send_from_directory('data/references/', algorithm)
   return response
 
 
