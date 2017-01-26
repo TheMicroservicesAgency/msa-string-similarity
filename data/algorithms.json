@@ -1,0 +1,82 @@
+{
+  "algorithms": [
+    {
+      "algorithm": "kern_subsequence",
+      "name": "Subsequence kernel",
+      "reference": "Lodhi, Saunders, Shawe-Taylor, Cristianini, and Watkins. Text classification using string kernels. Journal of Machine Learning Research, 2:419-444, 2002",
+      "reference-url": "/similarity/references/kern_subsequence.pdf"
+    },
+    {
+      "algorithm": "dist_damerau",
+      "name": "Damerau-Levenshtein distance for strings",
+      "reference": "Damerau. A technique for computer detection and correction of spelling errors, Communications of the ACM, 7(3):171-176, 1964",
+      "reference-url": "/similarity/references/dist_damerau.pdf"
+    },
+    {
+      "algorithm": "dist_lee",
+      "name": "Lee distance for strings",
+      "reference": "Lee. Some properties of nonbinary error-correcting codes. IRE Transactions on Information Theory 4 (2): 77-82, 1958",
+      "reference-url": "/similarity/references/dist_lee.pdf"
+    },
+    {
+      "algorithm": "kern_distance",
+      "name": "Distance substitution kernel",
+      "reference": "Haasdonk and Bahlmann (2004)",
+      "reference-url": "/similarity/references/kern_distance.pdf"
+    },
+    {
+      "algorithm": "dist_levenshtein",
+      "name": "Levenshtein distance for strings",
+      "reference": "Levenshtein. Binary codes capable of correcting deletions, insertions, and reversals. Doklady Akademii Nauk SSSR, 163 (4):845-848, 1966",
+      "reference-url": "/similarity/references/dist_levenshtein.pdf"
+    },
+    {
+      "algorithm": "dist_compression",
+      "name": "Compression distance for strings",
+      "reference": "Cilibrasi and Vitanyi. Clustering by compression, IEEE Transactions on Information Theory, 51:4, 1523-1545, 2005",
+      "reference-url": "/similarity/references/dist_compression.pdf"
+    },
+    {
+      "algorithm": "dist_hamming",
+      "name": "Hamming distance for strings",
+      "reference": "Hamming. Error-detecting and error-correcting codes. Bell System Technical Journal, 29(2):147-160, 1950",
+      "reference-url": "/similarity/references/dist_hamming.pdf"
+    },
+    {
+      "algorithm": "dist_kernel",
+      "name": "Kernel-based distance",
+      "reference": "This module implements a kernel-based distance. A given kernel algorithm is mapped to a Euclidean distance using simple geometry",
+      "reference-url": "https://en.wikipedia.org/wiki/Kernel_method"
+    },
+    {
+      "algorithm": "dist_jarowinkler",
+      "name": "Jaro-Winkler distance for strings",
+      "reference": "Jaro. Advances in record linkage methodology as applied to the 1985 census of Tampa Florida. Journal of the American Statistical Association 84 (406): 414-420, 1989. Winkler. String Comparator Metrics and Enhanced Decision Rules in the Fellegi-Sunter Model of Record Linkage. Proceedings of the Section on Survey Research Methods. 354-359, 1990",
+      "reference-url": "/similarity/references/dist_jarowinkler.pdf"
+    },
+    {
+      "algorithm": "dist_osa",
+      "name": "Optimal sequence alignment (OSA) distance ",
+      "reference": "Doolittle. Of Urfs and Orfs: A Primer on How to Analyze Derived Amino Acid Sequences. University Science Books, 1986 ",
+      "reference-url": "https://books.google.ca/books?id=jIlMMx6Ji-sC&printsec=frontcover"
+    },
+    {
+      "algorithm": "kern_wdegree",
+      "name": "Weighted-degree kernel",
+      "reference": "Sonnenburg, Raetsch, and Rieck. Large scale learning with string kernels. In Large Scale Kernel Machines, pages 73--103. MIT Press, 2007",
+      "reference-url": "/similarity/references/kern_wdegree.pdf"
+    },
+    {
+      "algorithm": "kern_spectrum",
+      "name": "Spectrum kernel",
+      "reference": "C. Leslie, E. Eskin, and W. Noble. The spectrum kernel: a string kernel for SVM protein classifica- tion.  In Proc. of Pacific Symposium on Biocomputing (PSB), pages 564-575, 2002",
+      "reference-url": "/similarity/references/kern_spectrum.pdf"
+    },
+    {
+      "algorithm": "dist_bag",
+      "name": "Bag distance for strings",
+      "reference": "Bartolini, Ciaccia, Patella. String Matching with Metric Trees Using an Approximate Distance.  String Processing and Information Retrieval, LNCS 2476, 271-283, 2002",
+      "reference-url": "/similarity/references/dist_bag.pdf"
+    }
+  ]
+}
