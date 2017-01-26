@@ -17,6 +17,9 @@ RUN apk add --update gcc zlib-dev libconfig-dev libarchive-dev automake autoconf
 
 #RUN pip install -r /opt/ms/requirements.txt
 
+# Override the Nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
+
 # Override the default endpoints
 ADD README.md NAME LICENSE VERSION /opt/ms/
 ADD swagger.json /opt/swagger/swagger.json

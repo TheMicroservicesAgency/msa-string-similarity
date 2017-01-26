@@ -3,6 +3,10 @@ import harry
 import numpy
 import random
 import json
+import logging
+
+# disable the warnings
+logging.getLogger("harry").setLevel(logging.ERROR)
 
 app = Flask(__name__)
 
@@ -16,21 +20,33 @@ supported_algorithms = []
 for algo in algorithms['algorithms']:
     supported_algorithms.append(algo['algorithm'])
 
+# for the now supported granularity if hardcoded
 supported_granularity = ["bits", "bytes", "tokens"]
 
+# add the caching headers
+@app.after_request
+def add_header(response):
+    response.cache_control.max_age = 31536000
+    response.cache_control.public = True
+    return response
 
+# return the list of algorithms
 @app.route('/similarity/algorithms')
 def return_algorithms():
   response = jsonify(algorithms)
   return response
 
 
+# serve the doc for a given algorithm
 @app.route('/similarity/references/<ref>')
 def return_reference(ref):
   response = send_from_directory('data/references/', ref)
   return response
 
 
+# the actual service, expects a HTTP POST with a JSON document
+# containing a list of strings, will compare the strings and return
+# the results as a matrix, also in JSON
 @app.route('/similarity' , methods=['POST'])
 def compare_strings():
 
@@ -40,6 +56,7 @@ def compare_strings():
     granularity = "bytes"
     tokens_delimiter = ""
 
+    # change the default algorithm if another one is specified
     arg_algorithm = request.args.get("algorithm")
     if arg_algorithm:
         if arg_algorithm in supported_algorithms:
@@ -51,6 +68,7 @@ def compare_strings():
             response = "{\"ERROR\" : \"%s\"}" % msg
             return response, 400
 
+    # use the granularity parameter if it's specified
     arg_granularity = request.args.get("granularity")
     if arg_granularity:
         if arg_granularity in supported_granularity:
@@ -62,6 +80,7 @@ def compare_strings():
             response = "{\"ERROR\" : \"%s\"}" % msg
             return response, 400
 
+    # if the granularity is 'tokens', also check for the delimiter parameter
     arg_delimiter = request.args.get("delimiter")
     if arg_delimiter:
         if granularity == "tokens":
@@ -72,14 +91,10 @@ def compare_strings():
             response = "{\"ERROR\" : \"%s\"}" % msg
             return response, 400
 
-    print("algorithm : %s " % algorithm)
-    print("granularity : %s " % granularity)
-    print("tokens_delimiter : %s " % tokens_delimiter)
-
     strings = request.json
 
     results = []
-    if granularity == "tokens":
+    if granularity == "tokens" and tokens_delimiter != "":
         results = harry.compare(strings, measure=algorithm,
                                          granularity=granularity,
                                          token_delim=tokens_delimiter)
