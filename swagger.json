@@ -1,17 +1,206 @@
 {
     "swagger": "2.0",
     "info": {
-        "version": "1.0.0",
-        "title": "msa-template-python",
-        "description": "An exmple of a simple Python microservice"
+        "title": "MSA-STRING-SIMILARITY",
+        "description": "Various algorithms to evaluate the similarity of N strings",
+        "version": "1.0.0"
     },
+    "produces": [
+        "application/json"
+    ],
     "paths": {
-        "/hello-world": {
+        "/ms/version": {
             "get": {
-                "description": "Returns \"Hello world\"\n",
+                "tags": [
+                    "msa-standard"
+                ],
+                "summary": "Return the microservice version number",
                 "responses": {
                     "200": {
-                        "description": "Successful response"
+                        "description": "the version number"
+                    }
+                }
+            }
+        },
+        "/ms/name": {
+            "get": {
+                "tags": [
+                    "msa-standard"
+                ],
+                "summary": "Return the microservice name",
+                "responses": {
+                    "200": {
+                        "description": "the name"
+                    }
+                }
+            }
+        },
+        "/ms/readme.md": {
+            "get": {
+                "tags": [
+                    "msa-standard"
+                ],
+                "summary": "Return the microservice readme in markdown",
+                "responses": {
+                    "200": {
+                        "description": "the readme in markdown"
+                    }
+                }
+            }
+        },
+        "/ms/readme.html": {
+            "get": {
+                "tags": [
+                    "msa-standard"
+                ],
+                "summary": "Return the microservice readme in html",
+                "responses": {
+                    "200": {
+                        "description": "the readme in html"
+                    }
+                }
+            }
+        },
+        "/swagger/swagger.json": {
+            "get": {
+                "tags": [
+                    "msa-standard"
+                ],
+                "summary": "Return the microservice Swagger JSON file",
+                "responses": {
+                    "200": {
+                        "description": "the Swagger JSON file"
+                    }
+                }
+            }
+        },
+        "/swagger/#": {
+            "get": {
+                "tags": [
+                    "msa-standard"
+                ],
+                "summary": "Return the Swagger-UI page",
+                "responses": {
+                    "200": {
+                        "description": "the Swagger-UI page"
+                    }
+                }
+            }
+        },
+        "/nginx/stats.json": {
+            "get": {
+                "tags": [
+                    "msa-standard"
+                ],
+                "summary": "Return stats about Nginx in JSON",
+                "responses": {
+                    "200": {
+                        "description": "the stats about Nginx in JSON"
+                    }
+                }
+            }
+        },
+        "/nginx/stats.html": {
+            "get": {
+                "tags": [
+                    "msa-standard"
+                ],
+                "summary": "Return a dashboard displaying the stats from Nginx",
+                "responses": {
+                    "200": {
+                        "description": "the Nginx stats dashboard"
+                    }
+                }
+            }
+        },
+        "/similarity/algorithms": {
+            "get": {
+                "tags": [
+                    "msa-string-similarity"
+                ],
+                "summary": "Return the list of supported algorithms",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "the list of supported algorithms"
+                    }
+                }
+            }
+        },
+        "/similarity/references/{algorithm}": {
+            "get": {
+                "tags": [
+                    "msa-string-similarity"
+                ],
+                "summary": "Returns the pdf documentation of a given algorithm",
+                "parameters": [
+                    {
+                        "name": "algorithm",
+                        "in": "path",
+                        "description": "the algorithm",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "the pdf documentation if available"
+                    }
+                }
+            }
+        },
+        "/similarity": {
+            "post": {
+                "tags": [
+                    "msa-string-similarity"
+                ],
+                "summary": "Mesure the similarity of N strings",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "the strings to compare",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "name": "algorithm",
+                        "in": "query",
+                        "description": "the name of the algorithm to use, ex dist_hamming - defaults to dist_levenshtein",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "granularity",
+                        "in": "query",
+                        "description": "the granularity to use, bits bytes or tokens - defaults to bytes",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "delimiter",
+                        "in": "query",
+                        "description": "the delimiter to use when splitting tokens",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "the computed similarity mesures"
                     }
                 }
             }
