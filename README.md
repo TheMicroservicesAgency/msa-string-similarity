@@ -31,20 +31,20 @@ The result is a matrix of the computed similarity values, in JSON.
 
 To get the list of supported algorithms, get the /similarity/algorithms url :
 
-    $ curl http://localhost:9906/similarity/algorithms
+    curl http://localhost:9906/similarity/algorithms
 
     {
       "algorithms": [
         {
           "algorithm": "kern_subsequence",
           "name": "Subsequence kernel",
-          "reference": "Lodhi, Saunders, Shawe-Taylor, Cristianini, and Watkins. Text classification using string kernels. Journal of Machine Learning...",
+          "reference": "Lodhi, Saunders, Shawe-Taylor, Cristianini, and Watkins...",
           "reference-url": "/similarity/references/kern_subsequence.pdf"
         },
         {
           "algorithm": "dist_damerau",
           "name": "Damerau-Levenshtein distance for strings",
-          "reference": "Damerau. A technique for computer detection and correction of spelling errors, Communications of the ACM, 7(3):171-176, 1964",
+          "reference": "Damerau. A technique for computer detection...",
           "reference-url": "/similarity/references/dist_damerau.pdf"
         },
       ...
@@ -69,7 +69,7 @@ Another example, but this time with the Jaro–Winkler distance and the granular
 
 ## Endpoints
 
-- [/similarity](/similarity) : computes the similarity between N strings
+- [/similarity](/) : computes the similarity between N strings
 - [/similarity/algorithms](/similarity/algorithms) : list the supported algorithms
 - [/similarity/references/:algorithm](/similarity/references/dist_levenshtein.pdf) : documentation available for a given algorithm
 

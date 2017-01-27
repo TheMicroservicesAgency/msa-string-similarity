@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "MSA-STRING-SIMILARITY",
-		"_postman_id": "1c87a73d-b2f7-e653-7bab-e1a2db44176b",
+		"_postman_id": "839550cf-0430-dcba-ab67-496e186a8730",
 		"description": "Various algorithms to evaluate the similarity of N strings",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -28,7 +28,10 @@
 						"url": "http://localhost:9906/ms/version",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -50,7 +53,10 @@
 						"url": "http://localhost:9906/ms/name",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -72,7 +78,10 @@
 						"url": "http://localhost:9906/ms/readme.md",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -94,7 +103,10 @@
 						"url": "http://localhost:9906/ms/readme.html",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -122,7 +134,10 @@
 						"url": "http://localhost:9906/nginx/stats.json",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -144,7 +159,10 @@
 						"url": "http://localhost:9906/nginx/stats.html",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -175,35 +193,29 @@
 						"url": "http://localhost:9906/similarity/algorithms",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
 					"name": "Returns the pdf documentation of a given algorithm",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
 					"request": {
-						"url": {
-							"raw": "http/:///similarity/references/dist_levenshtein",
-							"auth": {},
-							"host": [
-								"http"
-							],
-							"path": [
-								":",
-								"",
-								"",
-								"similarity",
-								"references",
-								"dist_levenshtein"
-							],
-							"variable": [
-								{
-									"value": "",
-									"id": ""
-								}
-							]
-						},
+						"url": "http://localhost:9906/similarity/references/dist_levenshtein.pdf",
 						"method": "GET",
 						"header": [],
 						"body": {},
@@ -256,7 +268,7 @@
 									"",
 									"tests[\"Status code is 200\"] = responseCode.code === 200;",
 									"",
-									"tests[\"Returns expected result\"] = responseBody === \"[[0.0, 0.0035714285913854837], [0.0035714285913854837, 0.0]]\";"
+									"tests[\"Returns expected result\"] = responseBody === \"[[0.0, 0.08548535406589508], [0.08548535406589508, 0.0]]\";"
 								]
 							}
 						}
@@ -302,7 +314,10 @@
 						"url": "http://localhost:9906/swagger/swagger.json",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -324,7 +339,10 @@
 						"url": "http://localhost:9906/swagger/#",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
