@@ -69,21 +69,21 @@ Another example, but this time with the Jaro–Winkler distance and the granular
 
 ## Endpoints
 
-- [/similarity](/) : computes the similarity between N strings
-- [/similarity/algorithms](/similarity/algorithms) : list the supported algorithms
-- [/similarity/references/:algorithm](/similarity/references/dist_levenshtein.pdf) : documentation available for a given algorithm
+- POST [/similarity](/) : computes the similarity between N strings
+- GET [/similarity/algorithms](/similarity/algorithms) : list the supported algorithms
+- GET [/similarity/references/:algorithm](/similarity/references/dist_levenshtein.pdf) : documentation available for a given algorithm
 
 
 ## Standard endpoints
 
-- [/ms/version](/ms/version) : returns the version number
-- [/ms/name](/ms/name) : returns the name
-- [/ms/readme.md](/ms/readme.md) : returns the readme (this file)
-- [/ms/readme.html](/ms/readme.html) : returns the readme as html
-- [/swagger/swagger.json](/swagger/swagger.json) : returns the swagger api documentation
-- [/swagger/#/](/swagger/#/) : returns swagger-ui displaying the api documentation
-- [/nginx/stats.json](/nginx/stats.json) : returns stats about Nginx
-- [/nginx/stats.html](/nginx/stats.html) : returns a dashboard displaying the stats from Nginx
+- GET [/ms/version](/ms/version) : returns the version number
+- GET [/ms/name](/ms/name) : returns the name
+- GET [/ms/readme.md](/ms/readme.md) : returns the readme (this file)
+- GET [/ms/readme.html](/ms/readme.html) : returns the readme as html
+- GET [/swagger/swagger.json](/swagger/swagger.json) : returns the swagger api documentation
+- GET [/swagger/#/](/swagger/#/) : returns swagger-ui displaying the api documentation
+- GET [/nginx/stats.json](/nginx/stats.json) : returns stats about Nginx
+- GET [/nginx/stats.html](/nginx/stats.html) : returns a dashboard displaying the stats from Nginx
 
 ## About
 
