@@ -1,2 +1,2 @@
-Flask
-numpy
+Flask==0.11.1
+numpy==1.11.2
